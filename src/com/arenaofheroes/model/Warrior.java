@@ -15,6 +15,9 @@ public class Warrior extends GameCharacter implements ISkill {
 
     @Override
     public void attack(GameCharacter target) {
+        if(!super.check(target)){
+            return;
+        }
         int attackPower = super.getAttackPower();
         target.takeDamage(attackPower);
         System.out.printf("[Chiến binh] %s tấn công %s!\n",super.getName(),target.getName());
@@ -23,6 +26,9 @@ public class Warrior extends GameCharacter implements ISkill {
 
     @Override
     public void useUltimate(GameCharacter target) {
+        if(!super.check(target)){
+            return;
+        }
         if(super.getHp() <= limitHp){
             System.out.println("Không đủ máu để sử dụng!");
         }else{

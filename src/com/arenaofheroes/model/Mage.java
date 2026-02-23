@@ -12,6 +12,9 @@ public class Mage extends GameCharacter implements ISkill {
 
     @Override
     public void attack(GameCharacter target) {
+        if(!super.check(target)){
+            return;
+        }
         int attackPower = super.getAttackPower();
         if(this.mana >= 5){
             target.takeDamage(attackPower);
@@ -25,6 +28,9 @@ public class Mage extends GameCharacter implements ISkill {
 
     @Override
     public void useUltimate(GameCharacter target) {
+        if(!super.check(target)){
+            return;
+        }
         if(this.mana < 50){
             System.out.printf("%s Không đủ mana!\n",super.getName());
         }else{

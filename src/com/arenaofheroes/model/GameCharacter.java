@@ -50,4 +50,15 @@ public abstract class GameCharacter {
     public void displayInfo(){
         System.out.printf("|Name : %-10s | HP : %-5d |\n",name,hp);
     }
+
+    public boolean check(GameCharacter target){
+        if(target == null){
+            return false;
+        }
+        if(hp <= 0){
+            System.out.printf("%s đã bị hạ gục, không thể tấn công!\n", name);
+            return false;
+        }
+        return true;
+    }
 }

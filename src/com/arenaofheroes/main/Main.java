@@ -26,9 +26,17 @@ public class Main {
         System.out.println("============ THÔNG SỐ TRƯỚC LƯỢT ĐẤU ===========");
         matchStatistics(characters);
 
+        // trường hợp 1 :
         yasuo.attack(goblin);
         veigar.useUltimate(yasuo);
         goblin.attack(veigar);
+
+//        trường hợp 2 :
+//        yasuo.attack(goblin);
+//        veigar.useUltimate(yasuo);
+//        yasuo.attack(null);
+//        yasuo.attack(goblin);
+//        goblin.attack(veigar);
 
         System.out.println("============ THÔNG SỐ SAU LƯỢT ĐẤU =============");
         matchStatistics(characters);

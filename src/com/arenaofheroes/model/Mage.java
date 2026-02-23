@@ -12,14 +12,15 @@ public class Mage extends GameCharacter implements ISkill {
 
     @Override
     public void attack(GameCharacter target) {
+        int attackPower = super.getAttackPower();
         if(this.mana >= 5){
-            target.takeDamage(super.getAttackPower());
+            target.takeDamage(attackPower);
             this.mana -= 5;
         }else{
-            target.takeDamage(super.getAttackPower() / 2);
+            target.takeDamage(attackPower / 2);
         }
         System.out.printf("[Pháp sư] %s tấn công %s!\n",super.getName(),target.getName());
-        System.out.printf("-> %s mất %d máu, HP còn : %d\n",target.getName(),super.getAttackPower(),target.getHp());
+        System.out.printf("-> %s mất %d máu, HP còn : %d\n",target.getName(),attackPower,target.getHp());
     }
 
     @Override
@@ -27,10 +28,11 @@ public class Mage extends GameCharacter implements ISkill {
         if(this.mana < 50){
             System.out.printf("%s Không đủ mana!\n",super.getName());
         }else{
+            int attackPower = super.getAttackPower();
             this.mana -= 50;
             System.out.printf("[Pháp sư] %s sử dụng chiêu cuối lên %s!\n",super.getName(),target.getName());
-            System.out.printf("-> %s tốn 50 mana, %s mất %d máu\n",super.getName(),target.getName(),super.getAttackPower() * 2);
-            target.takeDamage(super.getAttackPower() * 2);
+            System.out.printf("-> %s tốn 50 mana, %s mất %d máu\n",super.getName(),target.getName(),attackPower * 2);
+            target.takeDamage(attackPower * 2);
         }
     }
 

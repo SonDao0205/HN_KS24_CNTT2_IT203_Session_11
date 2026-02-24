@@ -25,6 +25,9 @@ public class Support extends GameCharacter implements ISkill {
         }
         System.out.printf("[Ho Tro] %s tấn công %s!\n",super.getName(),target.getName());
         System.out.printf("-> %s mất %d máu, HP còn : %d\n",target.getName(),attackPower,target.getHp());
+        if(target.getHp()<=0){
+            System.out.printf("%s đã bị hạ gục!\n", target.getName());
+        }
     }
 
     @Override
@@ -41,5 +44,13 @@ public class Support extends GameCharacter implements ISkill {
 
         System.out.printf("[Hỗ Trợ] %s sử dụng chiêu cuối!\n", super.getName());
         System.out.printf("-> %s hồi phục 36 máu (HP: %d → %d)\n", super.getName(), oldHp, super.getHp());
+        if(target.getHp()<=0){
+            System.out.printf("%s đã bị hạ gục!\n", target.getName());
+        }
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.printf("|Name : %-10s | HP : %-5d | Mana : %-5d |\n",super.getName(),super.getHp(),this.mana);
     }
 }

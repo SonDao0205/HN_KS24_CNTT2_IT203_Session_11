@@ -16,27 +16,35 @@ public class Assassin extends GameCharacter implements ISkill {
         if (this.energy >= 50){
             target.takeDamage(super.getAttackPower());
             energy -= 50;
+            System.out.printf("%s sử dụng nắm đấp sấm sét vào %s .\n" , super.getName() , target.getName());
         } else {
             target.takeDamage(super.getAttackPower()/2);
+            System.out.printf("%s sử dụng nắm đấp sấm sét vào %s .\n" , super.getName() , target.getName());
+        }
+        if(target.getHp()<=0){
+            System.out.printf("%s đã bị hạ gục!\n", target.getName());
         }
     }
 
     @Override
     public void useUltimate(GameCharacter target) {
         if (this.energy >= 100){
-            if (target.getHp() <= 50) {
+            if (target.getHp() <= 100) {
                 int damage = target.getHp();
                 target.takeDamage(damage);
                 this.energy -= 100;
-                System.out.println("One shot one kill !");
+                System.out.printf("%s sử dụng One shot one kill vào %s .\n" , super.getName() , target.getName());
                 this.setHp(this.getHp() + damage);
             } else {
                 target.takeDamage(super.getAttackPower() * 3);
                 this.energy -= 100;
-                System.out.println("Chưa đủ điều kiện kết liễu, gây sát thương lớn!");
+                System.out.printf("%s sử dụng cú bắn nem chua vào %s .\n" , super.getName() , target.getName());
             }
         } else {
-            System.out.println("Năng lượng không đủ để dùng chiêu cuối !.");
+            System.out.printf("Năng lượng của %s không đủ để dùng chiêu cuối !.\n" , super.getName());
+        }
+        if(target.getHp()<=0){
+            System.out.printf("%s đã bị hạ gục!\n", target.getName());
         }
     }
 

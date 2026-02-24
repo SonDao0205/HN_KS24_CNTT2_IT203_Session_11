@@ -76,6 +76,7 @@ public class Main {
 
     // Hàm hiển thị thông tin tất cả các tướng
     static void matchStatistics(GameCharacter[] characters) {
+        System.out.println("------------------------------------------------");
         for (GameCharacter character : characters) {
             character.displayInfo();
         }

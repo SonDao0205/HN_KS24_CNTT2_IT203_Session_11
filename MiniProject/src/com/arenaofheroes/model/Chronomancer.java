@@ -17,9 +17,13 @@ public class Chronomancer extends GameCharacter implements ISkill {
             target.takeDamage(super.getAttackPower() + 20);
             this.timeEnergy -= 30;
 
-            System.out.println(super.getName() + " làm chậm thời gian của mục tiêu!");
+            System.out.println(super.getName() + " làm chậm thời gian của " + target.getName());
         } else {
             target.takeDamage(super.getAttackPower());
+            System.out.println(super.getName() + " làm chậm thời gian của " + target.getName());
+        }
+        if(target.getHp()<=0){
+            System.out.printf("%s đã bị hạ gục!\n", target.getName());
         }
     }
 
@@ -35,9 +39,12 @@ public class Chronomancer extends GameCharacter implements ISkill {
 
             this.timeEnergy -= 120;
 
-            System.out.println("Đóng băng thời gian! Gây " + damage + " damage và hồi " + heal + " HP.");
+            System.out.println(super.getName() + " đóng băng thời gian! Gây " + damage + " damage lên " + target.getName() + " và hồi " + heal + " HP cho bản thân.");
         } else {
-            System.out.println("Không đủ Time Energy để dùng chiêu cuối!");
+            System.out.println(super.getName() + " không đủ Time Energy để dùng chiêu cuối!");
+        }
+        if(target.getHp()<=0){
+            System.out.printf("%s đã bị hạ gục!\n", target.getName());
         }
     }
 

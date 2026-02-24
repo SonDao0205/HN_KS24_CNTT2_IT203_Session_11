@@ -38,7 +38,7 @@ public class Warrior extends GameCharacter implements ISkill {
             target.takeDamage(damage);
             super.setHp((int) (super.getHp() * 0.9));
             System.out.printf("[Chiến binh] %s sử dụng chiêu cuối lên %s!\n",super.getName(),target.getName());
-            System.out.printf("-> %s tốn 10 máu, %s mất %d\n",super.getName(),target.getName(),damage);
+            System.out.printf("-> %s tốn 10%% máu, %s mất %d\n",super.getName(),target.getName(),damage);
             if(target.getHp()<=0){
                 System.out.printf("%s đã bị hạ gục!\n", target.getName());
             }

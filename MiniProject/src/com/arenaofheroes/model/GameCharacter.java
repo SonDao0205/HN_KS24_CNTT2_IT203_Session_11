@@ -41,9 +41,8 @@ public abstract class GameCharacter {
 
     public void takeDamage(int amount){
         this.hp -= amount;
-        if (this.hp <= 0) {
-            this.hp = 0;
-            System.out.printf("%s đã bị hạ gục!\n", name);
+        if(this.hp<=0){
+            this.hp=0;
         }
     }
 

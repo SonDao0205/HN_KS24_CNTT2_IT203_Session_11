@@ -24,6 +24,9 @@ public class Mage extends GameCharacter implements ISkill {
         }
         System.out.printf("[Pháp sư] %s tấn công %s!\n",super.getName(),target.getName());
         System.out.printf("-> %s mất %d máu, HP còn : %d\n",target.getName(),attackPower,target.getHp());
+        if(target.getHp()<=0){
+            System.out.printf("%s đã bị hạ gục!\n", target.getName());
+        }
     }
 
     @Override
@@ -39,6 +42,9 @@ public class Mage extends GameCharacter implements ISkill {
             System.out.printf("[Pháp sư] %s sử dụng chiêu cuối lên %s!\n",super.getName(),target.getName());
             System.out.printf("-> %s tốn 50 mana, %s mất %d máu\n",super.getName(),target.getName(),attackPower * 2);
             target.takeDamage(attackPower * 2);
+            if(target.getHp()<=0){
+                System.out.printf("%s đã bị hạ gục!\n", target.getName());
+            }
         }
     }
 

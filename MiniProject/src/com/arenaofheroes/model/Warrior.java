@@ -10,7 +10,6 @@ public class Warrior extends GameCharacter implements ISkill {
         super(name, hp, attackPower);
         this.armor = armor;
         limitHp = (int)(super.getHp() * 0.1);
-        System.out.println("limit : "+limitHp );
     }
 
     @Override
@@ -19,9 +18,12 @@ public class Warrior extends GameCharacter implements ISkill {
             return;
         }
         int attackPower = super.getAttackPower();
-        target.takeDamage(attackPower);
         System.out.printf("[Chiến binh] %s tấn công %s!\n",super.getName(),target.getName());
+        target.takeDamage(attackPower);
         System.out.printf("-> %s mất %d máu, HP còn : %d\n",target.getName(),attackPower,target.getHp());
+        if(target.getHp()<=0){
+            System.out.printf("%s đã bị hạ gục!\n", target.getName());
+        }
     }
 
     @Override
@@ -37,6 +39,9 @@ public class Warrior extends GameCharacter implements ISkill {
             super.setHp((int) (super.getHp() * 0.9));
             System.out.printf("[Chiến binh] %s sử dụng chiêu cuối lên %s!\n",super.getName(),target.getName());
             System.out.printf("-> %s tốn 10 máu, %s mất %d\n",super.getName(),target.getName(),damage);
+            if(target.getHp()<=0){
+                System.out.printf("%s đã bị hạ gục!\n", target.getName());
+            }
         }
     }
 
